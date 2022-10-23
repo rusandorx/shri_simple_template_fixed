@@ -1,5 +1,6 @@
 import React from 'react';
 
+// good syntax to check linters
 export function About() {
   return (
     <>

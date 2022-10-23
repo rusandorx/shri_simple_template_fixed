@@ -10,7 +10,7 @@ export const setText = (text) => ({ type: 'SET_TEXT', text });
 export const setDone = (index, done) => ({ type: 'SET_DONE', index, done });
 
 // reducer
-const rootReducer = (state = DEFAULT_STATE, action) => {
+const rootReducer = (action, state = DEFAULT_STATE) => {
   switch (action.type) {
     case 'ADD_ITEM':
       return {

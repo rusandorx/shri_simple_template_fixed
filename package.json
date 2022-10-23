@@ -1,7 +1,7 @@
 {
     "name": "unit-demo-cra",
     "version": "0.1.0",
-    "homepage": ".",
+    "homepage": "https://rusandorx.github.io/shri_simple_template_fixed",
     "private": true,
     "dependencies": {
         "babel-plugin-lodash": "^3.3.4",
@@ -25,7 +25,8 @@
         "lint:css": "npx stylelint \"./src/**/*.css\" --fix",
         "report": "statoscope generate stats.json --output report.html -o",
         "analyze": "npm run validate && npm run report || npm run report",
-        "validate": "node_modules/.bin/statoscope validate -i stats.json --config=./statoscope.config.js"
+        "validate": "node_modules/.bin/statoscope validate -i stats.json --config=./statoscope.config.js",
+        "deploy": "npm run build && gh-pages -d dist"
     },
     "devDependencies": {
         "@babel/core": "^7.19.3",
@@ -37,6 +38,7 @@
         "babel-loader": "^8.2.5",
         "eslint": "^7.32.0",
         "eslint-config-airbnb": "^19.0.4",
+        "gh-pages": "^4.0.0",
         "html-webpack-plugin": "^5.5.0",
         "lodash-webpack-plugin": "^0.11.6",
         "stylelint": "^14.14.0",

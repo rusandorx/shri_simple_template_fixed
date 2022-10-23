@@ -30,7 +30,7 @@ jobs:
       - name: run build
         run: npm run build --if-present
       - name: create stats.json
-        run: npm run
+        run: npm run validate
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:

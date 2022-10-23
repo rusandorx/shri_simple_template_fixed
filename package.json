@@ -18,7 +18,7 @@
     },
     "scripts": {
         "start": "echo \"implement me\"",
-        "build": "echo \"implement me\"",
+        "build": "webpack --config webpack.config.js --mode production",
         "test": "echo \"implement me\"",
         "lint:js": "echo \"implement me\"",
         "lint:css": "echo \"implement me\"",

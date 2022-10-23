@@ -6,6 +6,7 @@ import { UUID } from '../utils/uuid';
 import styles from './index.module.css';
 
 export function TodoItem(props) {
+  // eslint-disable-next-line react/prop-types
   const { index } = props;
 
   const dispatch = useDispatch();

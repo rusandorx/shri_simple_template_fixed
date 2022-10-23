@@ -22,9 +22,11 @@ export function TodoList() {
     <div>
       <div>
         <input data-testid="input-add" value={text} onChange={onChange} />
+        {/* eslint-disable-next-line react/button-has-type */}
         <button data-testid="button-add" onClick={onClick}>Добавить</button>
       </div>
       <div data-testid="list" className="list">
+        {/* eslint-disable-next-line no-shadow */}
         {lodash.map(items, (text, i) => <TodoItem key={i} index={i} />)}
       </div>
     </div>

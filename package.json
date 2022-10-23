@@ -4,6 +4,7 @@
     "homepage": ".",
     "private": true,
     "dependencies": {
+        "babel-plugin-lodash": "^3.3.4",
         "crypto-browserify": "^3.12.0",
         "lodash": "^4.17.21",
         "react": "^17.0.2",
@@ -14,14 +15,15 @@
         "react-scripts": "4.0.3",
         "redux": "^4.1.0",
         "redux-observable": "^2.0.0",
-        "rxjs": "^7.1.0"
+        "rxjs": "^7.1.0",
+        "uuid": "^9.0.0"
     },
     "scripts": {
         "start": "npx webpack serve --mode production",
         "build": "webpack --config webpack.config.js --mode production",
         "lint:js": "eslint \"./src/**/*.js\" --fix",
         "lint:css": "npx stylelint \"./src/**/*.css\" --fix",
-        "analyze": "echo \"implement me\"",
+        "analyze": "statoscope",
         "validate": "node_modules/.bin/statoscope validate -i stats.json --config=./statoscope.config.js"
     },
     "devDependencies": {

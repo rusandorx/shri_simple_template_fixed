@@ -1,35 +1,69 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const StatoscopePlugin = require('@statoscope/webpack-plugin').default;
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const StatoscopePlugin = require('@statoscope/webpack-plugin').default
 
 const config = {
-    entry: {
-        about: './src/pages/About.js',
-        home: './src/pages/Home.js',
+  entry: {
+    about: './src/pages/About.js',
+    home: './src/pages/Home.js',
+    main: {
+      dependOn: ['about', 'home'],
+      import: './src/index.js',
     },
-    plugins: [
-        new HtmlWebpackPlugin(),
-        new StatoscopePlugin({
-            saveStatsTo: 'stats.json',
-            saveOnlyStats: false,
-            open: false,
-        }),
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './public', 'index.html'),
+    }),
+    new StatoscopePlugin({
+      saveStatsTo: 'stats.json',
+      saveOnlyStats: false,
+      open: false,
+    }),
+  ],
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
+    clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/i,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { runtime: 'automatic' }]],
+          },
+        },
+        exclude: /(node_modules)/,
+        resolve: { extensions: ['.js', '.jsx'] },
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[contenthash].js',
+  },
+  target: 'web',
+  resolve: {
+    fallback: {
+      'crypto': require.resolve('crypto'),
     },
-    module: {
-        rules: [
-            // @TODO js rule
-            // @TODO css rule
-        ],
+    alias: {
+      'crypto-browserify': path.resolve(__dirname, 'src/crypto-fallback.js'),
     },
-    // @TODO optimizations
-    // @TODO lodash treeshaking
-    // @TODO chunk for lodash
-    // @TODO chunk for runtime
-    // @TODO fallback for crypto
-};
+  },
+  optimization: {
+    runtimeChunk: {
+      name: 'runtime',
+    },
+  },
+  // @TODO optimizations
+  // @TODO lodash treeshaking
+  // @TODO chunk for lodash
+}
 
-module.exports = config;
+module.exports = config

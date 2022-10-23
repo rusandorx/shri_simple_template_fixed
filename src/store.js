@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore } from 'redux'
 
 const items = ['Позавтракать', 'Сходить в магазин', 'Покормить кота'];
 
@@ -10,7 +10,8 @@ export const setText = (text) => ({ type: 'SET_TEXT', text });
 export const setDone = (index, done) => ({ type: 'SET_DONE', index, done });
 
 // reducer
-const rootReducer = (action, state = DEFAULT_STATE) => {
+// eslint-disable-next-line default-param-last
+const rootReducer = (state = DEFAULT_STATE, action) => {
   switch (action.type) {
     case 'ADD_ITEM':
       return {
@@ -39,7 +40,5 @@ const rootReducer = (action, state = DEFAULT_STATE) => {
 // epics
 
 export function initStore() {
-  const store = createStore(rootReducer);
-
-  return store;
+  return createStore(rootReducer);
 }

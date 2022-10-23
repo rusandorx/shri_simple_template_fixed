@@ -1,7 +1,6 @@
 import React from 'react';
 
-// bad syntax to test linters
-var a = 3
+// good syntax to check linters
 export function About() {
   return (
     <>

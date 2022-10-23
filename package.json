@@ -23,7 +23,8 @@
         "build": "webpack --config webpack.config.js --mode production",
         "lint:js": "eslint \"./src/**/*.js\" --fix",
         "lint:css": "npx stylelint \"./src/**/*.css\" --fix",
-        "analyze": "statoscope",
+        "report": "statoscope generate stats.json --output report.html -o",
+        "analyze": "npm run validate && npm run report || npm run report",
         "validate": "node_modules/.bin/statoscope validate -i stats.json --config=./statoscope.config.js"
     },
     "devDependencies": {

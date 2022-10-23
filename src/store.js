@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore } from 'redux'
 
 const items = ['Позавтракать', 'Сходить в магазин', 'Покормить кота'];
 
@@ -40,7 +40,5 @@ const rootReducer = (state = DEFAULT_STATE, action) => {
 // epics
 
 export function initStore() {
-  const store = createStore(rootReducer);
-
-  return store;
+  return createStore(rootReducer);
 }

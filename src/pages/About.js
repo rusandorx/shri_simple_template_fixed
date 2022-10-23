@@ -6,7 +6,7 @@ export function About() {
     <>
       <h1 data-testid="page-title">About</h1>
       <p>This is an example application.</p>
-      <p>Test pr 1 f</p>
+      <p>Test pr 1 ff</p>
     </>
   );
 }

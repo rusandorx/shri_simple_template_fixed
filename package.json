@@ -19,9 +19,8 @@
     "scripts": {
         "start": "npx webpack serve --mode production",
         "build": "webpack --config webpack.config.js --mode production",
-        "test": "echo \"implement me\"",
-        "lint:js": "echo \"implement me\"",
-        "lint:css": "echo \"implement me\"",
+        "lint:js": "eslint \"./src/**/*.js\" --fix",
+        "lint:css": "npx stylelint \"./src/**/*.css\" --fix",
         "analyze": "echo \"implement me\"",
         "validate": "node_modules/.bin/statoscope validate -i stats.json --config=./statoscope.config.js"
     },
@@ -33,7 +32,11 @@
         "@statoscope/stats-validator-plugin-webpack": "^5.24.0",
         "@statoscope/webpack-plugin": "^5.24.0",
         "babel-loader": "^8.2.5",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb": "^19.0.4",
         "html-webpack-plugin": "^5.5.0",
+        "stylelint": "^14.14.0",
+        "stylelint-config-standard": "^29.0.0",
         "webpack": "^5.74.0",
         "webpack-cli": "^4.10.0",
         "webpack-dev-server": "^3.11.1"

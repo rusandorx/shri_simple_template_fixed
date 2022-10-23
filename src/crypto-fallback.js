@@ -1,5 +1,5 @@
-import {v4} from "uuid"
+import { v4 } from 'uuid';
 
 export default {
-  randomUUID: () => v4
-}
+  randomUUID: () => v4,
+};

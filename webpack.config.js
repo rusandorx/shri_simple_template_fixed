@@ -61,6 +61,11 @@ const config = {
       name: 'runtime',
     },
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000,
+  },
   // @TODO optimizations
   // @TODO lodash treeshaking
   // @TODO chunk for lodash

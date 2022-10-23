@@ -17,7 +17,7 @@
         "rxjs": "^7.1.0"
     },
     "scripts": {
-        "start": "echo \"implement me\"",
+        "start": "npx webpack serve --mode production",
         "build": "webpack --config webpack.config.js --mode production",
         "test": "echo \"implement me\"",
         "lint:js": "echo \"implement me\"",

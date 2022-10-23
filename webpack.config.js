@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const StatoscopePlugin = require('@statoscope/webpack-plugin').default
+const LodashWebpackPlugin = require('lodash-webpack-plugin')
 
 const config = {
   entry: {
@@ -20,6 +21,13 @@ const config = {
       saveStatsTo: 'stats.json',
       saveOnlyStats: false,
       open: false,
+    }),
+    new LodashWebpackPlugin({
+      coercions: true,
+      exotics: true,
+      memoizing: true,
+      collections: true,
+      paths: true
     }),
   ],
   output: {
@@ -55,21 +63,26 @@ const config = {
     },
     alias: {
       'crypto-browserify': path.resolve(__dirname, 'src/crypto-fallback.js'),
+      'react-is': path.resolve(__dirname, 'node_modules/react-is/cjs/react-is.production.min.js')
     },
   },
   optimization: {
-    runtimeChunk: {
-      name: 'runtime',
-    },
+    minimize: true,
+    emitOnErrors: true,
+    concatenateModules: true,
+    moduleIds: 'size',
+    mergeDuplicateChunks: true,
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'async'
+    }
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    open: true
   },
-  // @TODO optimizations
-  // @TODO lodash treeshaking
-  // @TODO chunk for lodash
 }
 
 module.exports = config

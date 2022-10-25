@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { createStore } from 'redux';
 
 const items = ['Позавтракать', 'Сходить в магазин', 'Покормить кота'];
 
